@@ -37,7 +37,11 @@ def spread_spectrum_extract(image, length, key):
     return ''.join(chars)
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
+def home():
+    return render_template('home.html')
+
+@app.route('/stego')
+def stego():
     return render_template('index.html')
 
 @app.route('/embed', methods=['POST'])

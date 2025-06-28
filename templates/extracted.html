@@ -1,15 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Pesan Ditemukan</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#b91c1c', // merah khas StegoApp
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
-  <div class="bg-white shadow-xl rounded-2xl p-8 text-center max-w-xl">
-    <h2 class="text-2xl font-bold text-gray-800 mb-4">🔓 Pesan Rahasia yang Diekstrak</h2>
-    <p class="text-lg text-gray-700 bg-gray-100 border rounded p-4 mb-6">{{ message }}</p>
-    <a href="/" class="text-blue-600 underline hover:text-blue-800">⬅️ Kembali ke Beranda</a>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6 font-sans">
+
+  <!-- Container -->
+  <div class="bg-white shadow-2xl rounded-2xl p-8 max-w-xl w-full text-center animate-fade-in">
+    <div class="text-5xl text-green-600 mb-4">🔓</div>
+    <h2 class="text-2xl font-bold text-gray-800 mb-3">Pesan Rahasia Berhasil Diekstrak</h2>
+    <p class="text-gray-600 mb-6">Pesan berikut berhasil diambil dari gambar stego:</p>
+
+    <!-- Kotak pesan -->
+    <div class="bg-gray-100 border border-gray-300 rounded-xl p-4 text-gray-800 text-lg mb-6 shadow-inner">
+      {{ message }}
+    </div>
+
+    <!-- Navigasi -->
+    <div class="flex justify-center gap-4">
+      <a href="/" class="bg-gray-200 text-sm px-4 py-2 rounded hover:bg-gray-300 transition">⬅️ Beranda</a>
+      <a href="/stego" class="bg-primary text-white text-sm px-4 py-2 rounded hover:bg-red-800 transition">🔁 Ekstraksi Baru</a>
+    </div>
   </div>
+
+  <!-- Animasi -->
+  <style>
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
 </body>
 </html>

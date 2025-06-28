@@ -1,15 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <title>Hasil Steganografi</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#b91c1c', // warna utama StegoApp
+          }
+        }
+      }
+    };
+  </script>
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-6">
-  <div class="bg-white shadow-xl rounded-2xl p-8 text-center">
-    <h2 class="text-2xl font-bold text-gray-800 mb-4">✅ Gambar Hasil Stego</h2>
-    <img src="{{ url_for('static', filename='uploads/' + result_image) }}" class="rounded shadow w-72 mx-auto mb-4" alt="Gambar Stego">
-    <a href="/" class="text-blue-600 underline hover:text-blue-800">⬅️ Kembali ke Beranda</a>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-6 font-sans">
+
+  <!-- Container -->
+  <div class="bg-white shadow-2xl rounded-2xl p-8 max-w-md w-full text-center animate-fade-in">
+    <div class="text-5xl mb-4 text-green-600">✅</div>
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">Gambar Berhasil Disisipkan!</h2>
+    <p class="text-gray-600 mb-6">Berikut adalah hasil gambar dengan pesan tersembunyi.</p>
+
+    <!-- Gambar Stego -->
+    <img src="{{ url_for('static', filename='uploads/' + result_image) }}"
+         alt="Gambar Stego"
+         class="rounded-xl shadow-md w-72 mx-auto mb-6 transition hover:scale-105 duration-300" />
+
+    <!-- Tombol Kembali & Unduh Manual -->
+    <div class="flex justify-center gap-4">
+      <a href="/" class="text-sm bg-gray-200 px-4 py-2 rounded hover:bg-gray-300 transition">⬅️ Beranda</a>
+      <a href="{{ url_for('static', filename='uploads/' + result_image) }}"
+         download
+         class="text-sm bg-primary text-white px-4 py-2 rounded hover:bg-red-800 transition">
+         ⬇️ Unduh Gambar
+      </a>
+    </div>
+
+    <!-- Link download tersembunyi -->
+    <a id="autoDownload" href="{{ url_for('static', filename='uploads/' + result_image) }}" download style="display: none;"></a>
   </div>
+
+  <!-- Animasi Fade-in -->
+  <style>
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <!-- Auto Download Script -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const link = document.getElementById('autoDownload');
+      if (link) link.click();
+    });
+  </script>
+
 </body>
 </html>

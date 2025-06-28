@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StegoApp - Privasi Pesan Anda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#b91c1c',
+            dark: '#1f2937',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans scroll-smooth">
+
+  <!-- Navbar -->
+<header class="bg-primary text-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-extrabold tracking-wide flex items-center gap-2">
+      🔐 <span>StegoApp</span>
+    </h1>
+    <nav class="space-x-6 flex items-center">
+      <a href="#home" class="hover:underline transition">Beranda</a>
+      <a href="/stego" class="hover:underline transition">Fitur Stenografi</a>
+      <a href="#team" class="hover:underline transition">Tim</a>
+      <a href="/stego"class="ml-4 bg-white text-primary px-5 py-1.5 rounded-full font-semibold shadow hover:bg-red-100 hover:scale-105 transition duration-300 ease-in-out">
+        Masuk
+      </a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Hero -->
+  <section id="home" class="py-20 bg-gradient-to-b from-white to-gray-100">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-12">
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="text-4xl font-extrabold text-primary leading-tight mb-4">Amankan Pesan Rahasia Anda</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          <strong>StegoApp</strong> membantu Anda menyisipkan pesan penting ke dalam gambar menggunakan algoritma <em>Spread Spectrum</em> yang kuat, andal, dan aman.
+        </p>
+        <ul class="grid grid-cols-2 gap-2 text-sm text-gray-700 mb-6">
+          <li>✅ Privasi Tinggi</li>
+          <li>✅ Aman & Andal</li>
+          <li>✅ Mudah Digunakan</li>
+          <li>✅ Cepat & Efisien</li>
+        </ul>
+        <a href="/stego" class="inline-block bg-primary text-white px-6 py-2 rounded-full font-semibold hover:bg-red-800 transition">
+          Mulai Sekarang
+        </a>
+      </div>
+      <div class="md:w-1/2 text-center">
+        <img src="{{ url_for('static', filename='images/gambar.jpg') }}" alt="Steganografi" class="rounded-2xl shadow-xl w-80 mx-auto hover:scale-105 transition duration-300">
+      </div>
+    </div>
+  </section>
+
+  <!-- Fitur -->
+  <section id="fitur" class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-primary mb-12">Fitur Unggulan</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="text-5xl mb-3">🔒</div>
+          <h3 class="font-bold mb-2 text-lg">Sisipkan Pesan</h3>
+          <p class="text-sm text-gray-600">Sembunyikan pesan rahasia dalam gambar digital dengan aman.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="text-5xl mb-3">🔍</div>
+          <h3 class="font-bold mb-2 text-lg">Ekstrak Pesan</h3>
+          <p class="text-sm text-gray-600">Ambil kembali pesan tersembunyi menggunakan kunci autentik.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="text-5xl mb-3">⚙️</div>
+          <h3 class="font-bold mb-2 text-lg">Spread Spectrum</h3>
+          <p class="text-sm text-gray-600">Algoritma kuat yang tahan terhadap manipulasi dan deteksi.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="text-5xl mb-3">📁</div>
+          <h3 class="font-bold mb-2 text-lg">Manajemen File</h3>
+          <p class="text-sm text-gray-600">Atur, simpan, dan kelola hasil steganografi Anda dengan mudah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tim -->
+  <section id="team" class="bg-gray-100 py-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-primary mb-8">Tim Pengembang</h2>
+      <p class="text-gray-700 mb-10">Kami adalah mahasiswa Teknik Informatika UIN Sunan Gunung Djati Bandung yang berkomitmen terhadap inovasi keamanan informasi digital.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-sm text-gray-800">
+        <div class="bg-white p-4 rounded shadow hover:bg-gray-50">Ade Ripaldi Nuralim</div>
+        <div class="bg-white p-4 rounded shadow hover:bg-gray-50">Adi Purnama</div>
+        <div class="bg-white p-4 rounded shadow hover:bg-gray-50">Adil Zkhruf Firdaus</div>
+        <div class="bg-white p-4 rounded shadow hover:bg-gray-50">Alawan Maulana Firdaus</div>
+        <div class="bg-white p-4 rounded shadow hover:bg-gray-50">Dafa Rabbani</div>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white pt-12 pb-8 mt-16">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+    
+    <!-- Deskripsi -->
+    <div>
+      <h3 class="text-lg font-bold mb-3">🔐 StegoApp</h3>
+      <p class="text-gray-200 leading-relaxed">
+        StegoApp membantu Anda menyembunyikan pesan penting dalam gambar digital dengan aman menggunakan teknologi Spread Spectrum.
+      </p>
+    </div>
+
+    <!-- Navigasi -->
+    <div>
+      <h3 class="text-lg font-bold mb-3">Navigasi</h3>
+      <ul class="space-y-2 text-gray-200">
+        <li><a href="/" class="hover:underline">Beranda</a></li>
+        <li><a href="/stego" class="hover:underline">Fitur</a></li>
+        <li><a href="#team" class="hover:underline">Tim</a></li>
+        <li><a href="/login" class="hover:underline">Masuk</a></li>
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div>
+      <h3 class="text-lg font-bold mb-3">Kontak Kami</h3>
+      <p class="text-gray-200">UIN Sunan Gunung Djati Bandung</p>
+      <p class="text-gray-200">Fakultas Sains dan Teknologi - Teknik Informatika</p>
+      <p class="text-gray-200 mt-2">Email: <a href="mailto:stegoapp@uinbdg.ac.id" class="underline">stegoapp@uinbdg.ac.id</a></p>
+      <div class="flex space-x-4 mt-4">
+        <!-- Dummy icons: You can replace with real social links or SVG -->
+        <a href="#" class="hover:text-gray-100 transition"><span>🌐</span></a>
+        <a href="#" class="hover:text-gray-100 transition"><span>🐦</span></a>
+        <a href="#" class="hover:text-gray-100 transition"><span>📘</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-10 text-center text-xs text-gray-300 border-t border-red-600 pt-4">
+    © 2025 Kelompok 1 - StegoApp. All rights reserved.
+  </div>
+</footer>
+
+
+</body>
+</html>
