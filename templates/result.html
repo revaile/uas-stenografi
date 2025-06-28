@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hasil Steganografi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-6">
+  <div class="bg-white shadow-xl rounded-2xl p-8 text-center">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">✅ Gambar Hasil Stego</h2>
+    <img src="{{ url_for('static', filename='uploads/' + result_image) }}" class="rounded shadow w-72 mx-auto mb-4" alt="Gambar Stego">
+    <a href="/" class="text-blue-600 underline hover:text-blue-800">⬅️ Kembali ke Beranda</a>
+  </div>
+</body>
+</html>
